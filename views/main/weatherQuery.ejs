@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <title>Weather Query</title>
+</head>
+<body>
+    <div id="body">
+        <div id="header">
+            <header>Find Weather</header>
+            <form action="/api/users/logout">
+                <button  type="submit">Logout</button>
+            </form>
+        </div>
+        <div id="mGallery">
+            <div class="mInfoSpace" style="align-self: center; justify-self: center; padding: 20px;">
+                <form action="/auth/weatherQuery" method="GET">
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city" placeholder="city">
+                <br>
+                <br>
+                <label for="current">Current Weather:</label>
+                <input type="radio" name="forecast" value="currentWeather">
+                <br>
+                <br>
+                <label for="fiveDayForcast">5 Day Forecast:</label>
+                <input type="radio" name="forecast" value="fiveDayForecast">
+                <br>
+                <br>
+                <button type="submit">Find Weather</button>
+                </form>
+            </div>
+        </div>
+        <div id="footer">
+            <%- include('../partials/footer') %>
+        </div>
+    </div>
+</body>
+</html>

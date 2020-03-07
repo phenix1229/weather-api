@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+    <title>Weather</title>
+</head>
+<body>
+    <div id="body">
+        <div id="header">
+            <header>Weather</header>
+            <form action="/api/users/logout">
+                <button  type="submit">Logout</button>
+            </form>
+        </div>
+        <div id="wGallery">
+            <% if (result) { %>
+                <div class="wInfoSpace" style="align-self: center;">
+                    <br>
+                    <br>
+                    <p><%= `Sky: ${result.weather[0].description}` %></p>
+                    <br>
+                    <p><%= `Temp: ${Math.floor(result.main.temp)}` %></p>
+                    <br>
+                    <p><%= `Feels Like: ${Math.floor(result.main.feels_like)}` %></p>
+                    <br>
+                    <p><%= `Humidity: ${result.main.humidity}%` %></p>
+                    <br>
+                    <p><%= `Wind: ${Math.floor(result.wind.speed)} mph` %></p>
+                    <br>
+                </div>
+            <% } else { %>
+            <% results.list.forEach(item => { %> 
+                <div class="wInfoSpace">
+                    <br>
+                    <br>
+                    <p><%= `Date: ${item.dt_txt.slice(5, 10)}` %></p>
+                    <br>
+                    <p><%= `Time: ${item.dt_txt.slice(11, 16)}` %></p>
+                    <br>
+                    <p><%= `Sky: ${item.weather[0].description}` %></p>
+                    <br>
+                    <p><%= `Temp: ${Math.floor(item.main.temp)}` %></p>
+                    <br>
+                    <p><%= `Feels Like: ${Math.floor(item.main.feels_like)}` %></p>
+                    <br>
+                    <p><%= `Humidity: ${item.main.humidity}%` %></p>
+                    <br>
+                    <p><%= `Wind: ${Math.floor(item.wind.speed)} mph` %></p>
+                    <br>
+                </div>
+                <% }) %>
+            <% } %>
+        </div>
+        <div id="footer">
+            <%- include('../partials/footer') %>
+        </div>
+    </div>
+</body>
+</html>

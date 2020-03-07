@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+#body {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-areas:
+      'header'
+      'gallery'
+      'footer';
+}
+
+#header {
+  grid-area: header;
+  display: grid;
+  height: 95px;
+  background: black;
+  color: #a6baf6;
+  text-align: center;
+  font-size: 2em;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+#mGallery {
+  background-color: #506296;
+  grid-area: gallery;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(450px, auto));
+  overflow-x: hidden;
+}
+
+#wGallery {
+  background-color: #506296;
+  grid-area: gallery;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(100, minMax(450px, auto));
+  overflow-y: hidden;
+}
+
+#uGallery {
+  background-color: #506296;
+  grid-area: gallery;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(150px, auto));
+  overflow-x: hidden;
+}
+
+#footer {
+  grid-area: footer;
+  height: 40px;
+  background: black;
+  color: #a6baf6;
+  text-align: left;
+  font-size: 1em;
+  padding: 30px 10px 0px 20px;
+}
+
+.mInfoSpace {
+  display: grid;
+  background-color: #a6baf6;
+  font-size: 16px;
+  width: 450px;
+  height: 450px;
+  padding: 5px;
+  margin: 8px;
+}
+
+.wInfoSpace {
+  display: grid;
+  background-color: #a6baf6;
+  font-size: 16px;
+  width: 420px;
+  height: 440px;
+  padding-left: 15px;
+  margin: 20px;
+}
+
+.inputSpace {
+  display: grid;
+  background-color: #a6baf6;
+  align-self: center;
+  justify-self: center;
+  height: 200px;
+  width: 200px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas: 
+    'input input'
+    'input input'
+    'input input'
+    'nav1 nav2'
+  ;
+}
+
+.input {
+  grid-area: input;
+}
+
+.nav1 {
+  grid-area: nav1;
+}
+
+.nav2 {
+  grid-area: nav2;
+}
+
+@media (max-width: 470px){
+  .mInfoSpace{
+      margin-left: 0;
+      max-width: 98vw;
+      height: 480px;
+      padding: 5px;
+  }
+}
