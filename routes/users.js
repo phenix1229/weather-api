@@ -18,7 +18,11 @@ router.get('/api/users/login', userController.loginPage)
 
 //logout user
 router.get('/api/users/logout', userController.logout);
+
+//render fail/unauthorized page
 router.get('/fail', userController.failPage);
+
+//render home page
 router.get('/', userController.home);
 
 

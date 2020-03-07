@@ -9,9 +9,9 @@ module.exports = {
     //render weather results page
     weather:(req, res) => {
         if(req.isAuthenticated()){
-            return res.render('main/weather');
+            return res.render('main/weather', {result:null, results:null});
         }else {
-            return res.render('main/fail');
+            return res.redirect('/fail');
         };
     },
 
@@ -35,7 +35,7 @@ module.exports = {
             return fetch(`${apiURL}weather?q=${req.query.city}&appid=${key}&units=imperial`)
             .then(res=>res.json())
             .then((result)=>{
-                return res.render('main/weather', {result});
+                return res.render('main/weather', {results:null, result});
             })
             .catch(err=>console.log('that sucks, it broke', err));
         }
@@ -44,9 +44,9 @@ module.exports = {
     //render weather query page
     findWeather:(req, res) => {
         if(req.isAuthenticated()){
-            return res.render('main/weatherQuery');
+            return res.render('main/findWeather');
         }else {
-            return res.render('main/fail');
+            return res.redirect('/fail');
         };
     }
 };

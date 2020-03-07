@@ -8,13 +8,17 @@
     <div id="body">
         <div id="header">
             <header>Weather</header>
+            <a href="/auth/findWeather"><button>Find Weather</button></a>
             <form action="/api/users/logout">
                 <button  type="submit">Logout</button>
             </form>
         </div>
         <div id="wGallery">
-            <% if (result) { %>
+            <% if (result !== null) { %>
                 <div class="wInfoSpace" style="align-self: center;">
+                    <br>
+                    <br>
+                    <p><%= `City: ${result.name}` %></p>
                     <br>
                     <br>
                     <p><%= `Sky: ${result.weather[0].description}` %></p>
@@ -28,9 +32,12 @@
                     <p><%= `Wind: ${Math.floor(result.wind.speed)} mph` %></p>
                     <br>
                 </div>
-            <% } else { %>
+            <% } else if (results !== null){ %>
             <% results.list.forEach(item => { %> 
                 <div class="wInfoSpace">
+                    <br>
+                    <br>
+                    <p><%= `City: ${results.city.name}` %></p>
                     <br>
                     <br>
                     <p><%= `Date: ${item.dt_txt.slice(5, 10)}` %></p>

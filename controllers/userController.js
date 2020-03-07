@@ -47,22 +47,12 @@ module.exports = {
     //authenticate using local login from passport file
     passport.authenticate('local-login', {
         successRedirect:'/auth/findWeather',
-        failureRedirect:'main/fail',
-        failureFlash: true
+        failureRedirect:'/fail',
     }),
 
     //render login page
     loginPage:(req, res) => {
     res.render('main/login');
-    },
-
-    //render success page
-    successPage:(req, res) => {
-    if(req.isAuthenticated()){
-        return res.render('options');
-    } else {
-        res.redirect('main/fail');
-    }
     },
 
     //render fail page
