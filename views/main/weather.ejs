@@ -23,7 +23,7 @@
                     <br>
                     <p><%= `Sky: ${result.weather[0].description}` %></p>
                     <br>
-                    <p><%= `Temp: ${Math.floor(result.main.temp)}` %></p>
+                    <p><%= `Temp: ${Math.floor(result.main.temp)} (F)` %></p>
                     <br>
                     <p><%= `Feels Like: ${Math.floor(result.main.feels_like)}` %></p>
                     <br>
@@ -46,7 +46,7 @@
                     <br>
                     <p><%= `Sky: ${item.weather[0].description}` %></p>
                     <br>
-                    <p><%= `Temp: ${Math.floor(item.main.temp)}` %></p>
+                    <p><%= `Temp: ${Math.floor(item.main.temp)} (F)` %></p>
                     <br>
                     <p><%= `Feels Like: ${Math.floor(item.main.feels_like)}` %></p>
                     <br>
